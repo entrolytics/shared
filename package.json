@@ -1,7 +1,7 @@
 {
   "name": "@entrolytics/shared",
-  "version": "2.0.0",
-  "description": "Shared constants and types for Entrolytics ecosystem",
+  "version": "2.0.1",
+  "description": "Shared utilities for Entrolytics - First-party growth analytics for the edge",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.0.0",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
