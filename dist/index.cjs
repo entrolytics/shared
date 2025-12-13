@@ -122,57 +122,57 @@ var DEFAULT_API_HOST = process.env.NODE_ENV === "production" ? API_ENDPOINTS.pro
 var ENV_VAR_NAMES = {
   nextjs: {
     websiteId: "NEXT_PUBLIC_ENTROLYTICS_NG_WEBSITE_ID",
-    host: "NEXT_PUBLIC_ENTROLYTICS_NG_HOST",
+    host: "NEXT_PUBLIC_ENTROLYTICS_HOST",
     envFile: ".env.local"
   },
   react: {
     websiteId: "VITE_ENTROLYTICS_NG_WEBSITE_ID",
-    host: "VITE_ENTROLYTICS_NG_HOST",
+    host: "VITE_ENTROLYTICS_HOST",
     envFile: ".env",
     fallback: {
       // CRA fallback
       websiteId: "REACT_APP_ENTROLYTICS_NG_WEBSITE_ID",
-      host: "REACT_APP_ENTROLYTICS_NG_HOST"
+      host: "REACT_APP_ENTROLYTICS_HOST"
     }
   },
   vue: {
     websiteId: "VITE_ENTROLYTICS_NG_WEBSITE_ID",
-    host: "VITE_ENTROLYTICS_NG_HOST",
+    host: "VITE_ENTROLYTICS_HOST",
     envFile: ".env"
   },
   svelte: {
     websiteId: "PUBLIC_ENTROLYTICS_NG_WEBSITE_ID",
-    host: "PUBLIC_ENTROLYTICS_NG_HOST",
+    host: "PUBLIC_ENTROLYTICS_HOST",
     envFile: ".env"
   },
   astro: {
     websiteId: "PUBLIC_ENTROLYTICS_NG_WEBSITE_ID",
-    host: "PUBLIC_ENTROLYTICS_NG_HOST",
+    host: "PUBLIC_ENTROLYTICS_HOST",
     envFile: ".env"
   },
   html: {
     websiteId: "ENTROLYTICS_NG_WEBSITE_ID",
-    host: "ENTROLYTICS_NG_HOST",
+    host: "ENTROLYTICS_HOST",
     envFile: ".env"
   },
   node: {
     websiteId: "ENTROLYTICS_NG_WEBSITE_ID",
-    host: "ENTROLYTICS_NG_HOST",
+    host: "ENTROLYTICS_HOST",
     envFile: ".env"
   },
   php: {
     websiteId: "ENTROLYTICS_NG_WEBSITE_ID",
-    host: "ENTROLYTICS_NG_HOST",
+    host: "ENTROLYTICS_HOST",
     envFile: ".env"
   },
   python: {
     websiteId: "ENTROLYTICS_NG_WEBSITE_ID",
-    host: "ENTROLYTICS_NG_HOST",
+    host: "ENTROLYTICS_HOST",
     envFile: ".env"
   },
   go: {
     websiteId: "ENTROLYTICS_NG_WEBSITE_ID",
-    host: "ENTROLYTICS_NG_HOST",
+    host: "ENTROLYTICS_HOST",
     envFile: ".env"
   }
 };
@@ -361,12 +361,12 @@ var USER_ROLES = {
   viewer: "viewer"
 };
 var FRAMEWORK_PACKAGES = {
-  nextjs: "@entrolytics/nextjs",
-  react: "@entrolytics/react",
-  vue: "@entrolytics/vue",
-  svelte: "@entrolytics/svelte",
-  astro: "@entrolytics/astro",
-  node: "@entrolytics/node"
+  nextjs: "@entrolytics/nextjs-sdk",
+  react: "@entrolytics/react-sdk",
+  vue: "@entrolytics/vue-sdk",
+  svelte: "@entrolytics/svelte-sdk",
+  astro: "@entrolytics/astro-sdk",
+  node: "@entrolytics/node-sdk"
 };
 var FRAMEWORK_PATTERNS = {
   nextjs: {

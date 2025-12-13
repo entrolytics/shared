@@ -138,56 +138,56 @@ declare const DEFAULT_API_HOST: "https://ng.entrolytics.click" | "http://localho
 declare const ENV_VAR_NAMES: {
     readonly nextjs: {
         readonly websiteId: "NEXT_PUBLIC_ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "NEXT_PUBLIC_ENTROLYTICS_NG_HOST";
+        readonly host: "NEXT_PUBLIC_ENTROLYTICS_HOST";
         readonly envFile: ".env.local";
     };
     readonly react: {
         readonly websiteId: "VITE_ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "VITE_ENTROLYTICS_NG_HOST";
+        readonly host: "VITE_ENTROLYTICS_HOST";
         readonly envFile: ".env";
         readonly fallback: {
             readonly websiteId: "REACT_APP_ENTROLYTICS_NG_WEBSITE_ID";
-            readonly host: "REACT_APP_ENTROLYTICS_NG_HOST";
+            readonly host: "REACT_APP_ENTROLYTICS_HOST";
         };
     };
     readonly vue: {
         readonly websiteId: "VITE_ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "VITE_ENTROLYTICS_NG_HOST";
+        readonly host: "VITE_ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly svelte: {
         readonly websiteId: "PUBLIC_ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "PUBLIC_ENTROLYTICS_NG_HOST";
+        readonly host: "PUBLIC_ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly astro: {
         readonly websiteId: "PUBLIC_ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "PUBLIC_ENTROLYTICS_NG_HOST";
+        readonly host: "PUBLIC_ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly html: {
         readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "ENTROLYTICS_NG_HOST";
+        readonly host: "ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly node: {
         readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "ENTROLYTICS_NG_HOST";
+        readonly host: "ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly php: {
         readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "ENTROLYTICS_NG_HOST";
+        readonly host: "ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly python: {
         readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "ENTROLYTICS_NG_HOST";
+        readonly host: "ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
     readonly go: {
         readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "ENTROLYTICS_NG_HOST";
+        readonly host: "ENTROLYTICS_HOST";
         readonly envFile: ".env";
     };
 };
@@ -419,12 +419,12 @@ declare const USER_ROLES: {
  * Framework package names
  */
 declare const FRAMEWORK_PACKAGES: {
-    readonly nextjs: "@entrolytics/nextjs";
-    readonly react: "@entrolytics/react";
-    readonly vue: "@entrolytics/vue";
-    readonly svelte: "@entrolytics/svelte";
-    readonly astro: "@entrolytics/astro";
-    readonly node: "@entrolytics/node";
+    readonly nextjs: "@entrolytics/nextjs-sdk";
+    readonly react: "@entrolytics/react-sdk";
+    readonly vue: "@entrolytics/vue-sdk";
+    readonly svelte: "@entrolytics/svelte-sdk";
+    readonly astro: "@entrolytics/astro-sdk";
+    readonly node: "@entrolytics/node-sdk";
 };
 /**
  * Framework detection patterns
@@ -606,50 +606,50 @@ interface DeploymentContext {
  */
 declare function getEnvVarNames(framework: Framework): {
     readonly websiteId: "NEXT_PUBLIC_ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "NEXT_PUBLIC_ENTROLYTICS_NG_HOST";
+    readonly host: "NEXT_PUBLIC_ENTROLYTICS_HOST";
     readonly envFile: ".env.local";
 } | {
     readonly websiteId: "VITE_ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "VITE_ENTROLYTICS_NG_HOST";
+    readonly host: "VITE_ENTROLYTICS_HOST";
     readonly envFile: ".env";
     readonly fallback: {
         readonly websiteId: "REACT_APP_ENTROLYTICS_NG_WEBSITE_ID";
-        readonly host: "REACT_APP_ENTROLYTICS_NG_HOST";
+        readonly host: "REACT_APP_ENTROLYTICS_HOST";
     };
 } | {
     readonly websiteId: "VITE_ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "VITE_ENTROLYTICS_NG_HOST";
+    readonly host: "VITE_ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "PUBLIC_ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "PUBLIC_ENTROLYTICS_NG_HOST";
+    readonly host: "PUBLIC_ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "PUBLIC_ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "PUBLIC_ENTROLYTICS_NG_HOST";
+    readonly host: "PUBLIC_ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "ENTROLYTICS_NG_HOST";
+    readonly host: "ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "ENTROLYTICS_NG_HOST";
+    readonly host: "ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "ENTROLYTICS_NG_HOST";
+    readonly host: "ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "ENTROLYTICS_NG_HOST";
+    readonly host: "ENTROLYTICS_HOST";
     readonly envFile: ".env";
 } | {
     readonly websiteId: "ENTROLYTICS_NG_WEBSITE_ID";
-    readonly host: "ENTROLYTICS_NG_HOST";
+    readonly host: "ENTROLYTICS_HOST";
     readonly envFile: ".env";
 };
-declare function getFrameworkPackage(framework: Framework): "@entrolytics/nextjs" | "@entrolytics/react" | "@entrolytics/vue" | "@entrolytics/svelte" | "@entrolytics/astro" | "@entrolytics/node";
+declare function getFrameworkPackage(framework: Framework): "@entrolytics/nextjs-sdk" | "@entrolytics/react-sdk" | "@entrolytics/vue-sdk" | "@entrolytics/svelte-sdk" | "@entrolytics/astro-sdk" | "@entrolytics/node-sdk";
 declare function isValidFramework(framework: string): framework is Framework;
 declare function getApiRoute(route: keyof typeof API_ROUTES, ...args: string[]): string;
 /**
