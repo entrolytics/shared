@@ -1,6 +1,6 @@
 {
   "name": "@entrolytics/shared",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Shared utilities for Entrolytics - First-party growth analytics for the edge",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^25.0.1",
+    "@types/node": "^25.0.3",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
   },
