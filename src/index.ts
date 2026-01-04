@@ -130,7 +130,7 @@ export const BILLING_ERRORS = {
  * API endpoint configuration
  */
 export const API_ENDPOINTS = {
-  production: 'https://ng.entrolytics.click',
+  production: 'https://entrolytics.click',
   development: 'http://localhost:3000',
 } as const;
 
@@ -145,57 +145,57 @@ export const DEFAULT_API_HOST =
  */
 export const ENV_VAR_NAMES = {
   nextjs: {
-    websiteId: 'NEXT_PUBLIC_ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'NEXT_PUBLIC_ENTROLYTICS_WEBSITE_ID',
     host: 'NEXT_PUBLIC_ENTROLYTICS_HOST',
     envFile: '.env.local',
   },
   react: {
-    websiteId: 'VITE_ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'VITE_ENTROLYTICS_WEBSITE_ID',
     host: 'VITE_ENTROLYTICS_HOST',
     envFile: '.env',
     fallback: {
       // CRA fallback
-      websiteId: 'REACT_APP_ENTROLYTICS_NG_WEBSITE_ID',
+      websiteId: 'REACT_APP_ENTROLYTICS_WEBSITE_ID',
       host: 'REACT_APP_ENTROLYTICS_HOST',
     },
   },
   vue: {
-    websiteId: 'VITE_ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'VITE_ENTROLYTICS_WEBSITE_ID',
     host: 'VITE_ENTROLYTICS_HOST',
     envFile: '.env',
   },
   svelte: {
-    websiteId: 'PUBLIC_ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'PUBLIC_ENTROLYTICS_WEBSITE_ID',
     host: 'PUBLIC_ENTROLYTICS_HOST',
     envFile: '.env',
   },
   astro: {
-    websiteId: 'PUBLIC_ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'PUBLIC_ENTROLYTICS_WEBSITE_ID',
     host: 'PUBLIC_ENTROLYTICS_HOST',
     envFile: '.env',
   },
   html: {
-    websiteId: 'ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'ENTROLYTICS_WEBSITE_ID',
     host: 'ENTROLYTICS_HOST',
     envFile: '.env',
   },
   node: {
-    websiteId: 'ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'ENTROLYTICS_WEBSITE_ID',
     host: 'ENTROLYTICS_HOST',
     envFile: '.env',
   },
   php: {
-    websiteId: 'ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'ENTROLYTICS_WEBSITE_ID',
     host: 'ENTROLYTICS_HOST',
     envFile: '.env',
   },
   python: {
-    websiteId: 'ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'ENTROLYTICS_WEBSITE_ID',
     host: 'ENTROLYTICS_HOST',
     envFile: '.env',
   },
   go: {
-    websiteId: 'ENTROLYTICS_NG_WEBSITE_ID',
+    websiteId: 'ENTROLYTICS_WEBSITE_ID',
     host: 'ENTROLYTICS_HOST',
     envFile: '.env',
   },

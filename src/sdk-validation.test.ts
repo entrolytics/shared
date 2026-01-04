@@ -19,20 +19,20 @@ describe('SDK Environment Variable Alignment', () => {
   });
 
   describe('Next.js SDK', () => {
-    it('should read NEXT_PUBLIC_ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('should read NEXT_PUBLIC_ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.nextjs;
 
-      expect(expectedVars.websiteId).toBe('NEXT_PUBLIC_ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('NEXT_PUBLIC_ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('NEXT_PUBLIC_ENTROLYTICS_HOST');
       expect(expectedVars.envFile).toBe('.env.local');
     });
   });
 
   describe('React SDK (Vite)', () => {
-    it('should read VITE_ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('should read VITE_ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.react;
 
-      expect(expectedVars.websiteId).toBe('VITE_ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('VITE_ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('VITE_ENTROLYTICS_HOST');
       expect(expectedVars.envFile).toBe('.env');
     });
@@ -40,67 +40,67 @@ describe('SDK Environment Variable Alignment', () => {
     it('should have CRA fallback', () => {
       const expectedVars = ENV_VAR_NAMES.react;
 
-      expect(expectedVars.fallback?.websiteId).toBe('REACT_APP_ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.fallback?.websiteId).toBe('REACT_APP_ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.fallback?.host).toBe('REACT_APP_ENTROLYTICS_HOST');
     });
   });
 
   describe('Vue SDK', () => {
-    it('should read VITE_ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('should read VITE_ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.vue;
 
-      expect(expectedVars.websiteId).toBe('VITE_ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('VITE_ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('VITE_ENTROLYTICS_HOST');
       expect(expectedVars.envFile).toBe('.env');
     });
   });
 
   describe('Svelte SDK', () => {
-    it('should read PUBLIC_ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('should read PUBLIC_ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.svelte;
 
-      expect(expectedVars.websiteId).toBe('PUBLIC_ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('PUBLIC_ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('PUBLIC_ENTROLYTICS_HOST');
       expect(expectedVars.envFile).toBe('.env');
     });
   });
 
   describe('Astro SDK', () => {
-    it('should read PUBLIC_ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('should read PUBLIC_ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.astro;
 
-      expect(expectedVars.websiteId).toBe('PUBLIC_ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('PUBLIC_ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('PUBLIC_ENTROLYTICS_HOST');
       expect(expectedVars.envFile).toBe('.env');
     });
   });
 
   describe('Backend SDKs (Node, PHP, Python, Go)', () => {
-    it('Node.js should read ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('Node.js should read ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.node;
 
-      expect(expectedVars.websiteId).toBe('ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('ENTROLYTICS_HOST');
     });
 
-    it('PHP should read ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('PHP should read ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.php;
 
-      expect(expectedVars.websiteId).toBe('ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('ENTROLYTICS_HOST');
     });
 
-    it('Python should read ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('Python should read ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.python;
 
-      expect(expectedVars.websiteId).toBe('ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('ENTROLYTICS_HOST');
     });
 
-    it('Go should read ENTROLYTICS_NG_WEBSITE_ID', () => {
+    it('Go should read ENTROLYTICS_WEBSITE_ID', () => {
       const expectedVars = ENV_VAR_NAMES.go;
 
-      expect(expectedVars.websiteId).toBe('ENTROLYTICS_NG_WEBSITE_ID');
+      expect(expectedVars.websiteId).toBe('ENTROLYTICS_WEBSITE_ID');
       expect(expectedVars.host).toBe('ENTROLYTICS_HOST');
     });
   });
