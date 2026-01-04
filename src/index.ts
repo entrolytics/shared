@@ -786,3 +786,7 @@ function getEnv(): Record<string, string | undefined> | null {
     return null;
   }
 }
+// Export analytics types
+export * from './analytics-types';
+// Export event protocol types (canonical event structures)
+export * from './event-protocol';

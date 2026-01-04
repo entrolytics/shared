@@ -1,3 +1,189 @@
+interface DateRangeFilter {
+    websiteId: string;
+    startDate: Date;
+    endDate: Date;
+    filters?: {
+        country?: string;
+        device?: 'desktop' | 'mobile' | 'tablet';
+        browser?: string;
+        path?: string;
+    };
+}
+interface OverviewStats {
+    pageviews: number;
+    visitors: number;
+    sessions: number;
+    pagesPerVisitor: number;
+    avgLoadTime: number;
+}
+interface TimeseriesData {
+    date: Date;
+    pageviews: number;
+    visitors: number;
+    sessions: number;
+}
+interface TopPage {
+    path: string;
+    views: number;
+    uniqueVisitors: number;
+    avgLoadTime: number;
+    p95LoadTime: number;
+}
+interface Referrer {
+    referrerDomain: string;
+    visits: number;
+    uniqueVisitors: number;
+}
+interface DeviceStats {
+    deviceType: string;
+    browser: string;
+    os: string;
+    pageviews: number;
+    uniqueVisitors: number;
+}
+interface GeoStats {
+    country: string;
+    city: string;
+    pageviews: number;
+    uniqueVisitors: number;
+}
+interface RealtimeStats {
+    visitors: number;
+    sessions: number;
+    pageviews: number;
+}
+interface RealtimeEvent {
+    timestamp: Date;
+    eventType: string;
+    eventName?: string;
+    path: string;
+    visitorId: string;
+    country?: string;
+    deviceType: string;
+    browser: string;
+}
+interface ActivePage {
+    path: string;
+    viewers: number;
+}
+/**
+ * Core event interface
+ */
+interface EntrolyticsEvent {
+    id: string;
+    websiteId: string;
+    sessionId: string;
+    visitorId: string;
+    timestamp: Date;
+    eventType: string;
+    eventName?: string;
+    url: string;
+    path: string;
+    referrer?: string;
+    referrerDomain?: string;
+    browser: string;
+    browserVersion?: string;
+    os: string;
+    osVersion?: string;
+    deviceType: 'desktop' | 'mobile' | 'tablet';
+    screenWidth?: number;
+    screenHeight?: number;
+    country?: string;
+    city?: string;
+    region?: string;
+    loadTime?: number;
+    domInteractive?: number;
+    domComplete?: number;
+    utmSource?: string;
+    utmMedium?: string;
+    utmCampaign?: string;
+    utmTerm?: string;
+    utmContent?: string;
+    properties?: Record<string, unknown>;
+}
+
+/**
+ * Event Protocol Types
+ *
+ * These types define the canonical event structures used across the Entrolytics ecosystem.
+ * Used by: API Server, SDKs, CLI, worker processes.
+ *
+ * This file was extracted from the internal @entrolytics/protocol package to enable
+ * sharing with external packages.
+ */
+/**
+ * Core event types supported by the analytics platform
+ */
+declare const EventType$1: {
+    readonly PageView: "pageview";
+    readonly Custom: "custom_event";
+    readonly Click: "click";
+};
+type EventType$1 = (typeof EventType$1)[keyof typeof EventType$1];
+/**
+ * Event payload as sent from client SDKs
+ */
+interface EventPayload {
+    websiteId: string;
+    sessionId: string;
+    visitorId: string;
+    url: string;
+    referrer?: string;
+    eventType: EventType$1;
+    eventName?: string;
+    properties?: Record<string, unknown>;
+    screenWidth?: number;
+    screenHeight?: number;
+    loadTime?: number;
+    domInteractive?: number;
+    domComplete?: number;
+    utmSource?: string;
+    utmMedium?: string;
+    utmCampaign?: string;
+    utmTerm?: string;
+    utmContent?: string;
+}
+/**
+ * Event DB row structure as stored in ClickHouse
+ * Uses snake_case to match database column naming convention
+ */
+interface EventDBRow {
+    id: string;
+    website_id: string;
+    session_id: string;
+    visitor_id: string;
+    timestamp: string;
+    event_type: EventType$1;
+    event_name: string | null;
+    url: string;
+    path: string;
+    referrer: string | null;
+    referrer_domain: string | null;
+    browser: string;
+    browser_version: string | null;
+    os: string;
+    os_version: string | null;
+    device_type: 'desktop' | 'mobile' | 'tablet';
+    screen_width: number | null;
+    screen_height: number | null;
+    country: string | null;
+    city: string | null;
+    region: string | null;
+    load_time: number | null;
+    dom_interactive: number | null;
+    dom_complete: number | null;
+    utm_source: string | null;
+    utm_medium: string | null;
+    utm_campaign: string | null;
+    utm_term: string | null;
+    utm_content: string | null;
+    properties: string;
+}
+/**
+ * Device types for analytics segmentation
+ */
+type DeviceType = 'desktop' | 'mobile' | 'tablet';
+
 /**
  * Shared constants across Entrolytics ecosystem
  * Used by: CLI, SDKs, Dashboard, Integrations
@@ -682,4 +868,4 @@ declare function getVitalRating(metric: VitalType, value: number): VitalRating;
  */
 declare function detectDeploymentContext(): DeploymentContext | null;
 
-export { API_ENDPOINTS, API_ROUTES, BILLING_ERRORS, type BillingError, CLI_CONFIG, CLI_TOKEN_STATUS, type CliAccessTokenMetadata, type CliTokenStatus, DEFAULT_API_HOST, DEPLOYMENT_ENV_VARS, DEPLOYMENT_SOURCES, type DeploymentContext, type DeploymentSource, ENV_VAR_NAMES, ERROR_MESSAGES, EVENT_TYPES, type EventType, FORM_EVENT_TYPES, FORM_FIELD_TYPES, FRAMEWORK_PACKAGES, FRAMEWORK_PATTERNS, type FormEventData, type FormEventType, type FormFieldType, type Framework, HTTP_STATUS, NAVIGATION_TYPES, type NavigationType, ONBOARDING_STEPS, type OnboardingStep, PLANS, PLAN_FEATURES, type Plan, type PlanFeature, type PlanId, RATE_LIMITS, SUCCESS_MESSAGES, USAGE_THRESHOLDS, USER_ROLES, type UserRole, VITAL_RATINGS, VITAL_THRESHOLDS, VITAL_TYPES, type VitalRating, type VitalType, type WebVitalData, detectDeploymentContext, getApiRoute, getEnvVarNames, getFrameworkPackage, getPlan, getPlanLimit, getVitalRating, isPlanFeatureEnabled, isUsageCritical, isUsageWarning, isValidFramework };
+export { API_ENDPOINTS, API_ROUTES, type ActivePage, BILLING_ERRORS, type BillingError, CLI_CONFIG, CLI_TOKEN_STATUS, type CliAccessTokenMetadata, type CliTokenStatus, DEFAULT_API_HOST, DEPLOYMENT_ENV_VARS, DEPLOYMENT_SOURCES, type DateRangeFilter, type DeploymentContext, type DeploymentSource, type DeviceStats, type DeviceType, ENV_VAR_NAMES, ERROR_MESSAGES, EVENT_TYPES, type EntrolyticsEvent, type EventDBRow, type EventPayload, type EventType, FORM_EVENT_TYPES, FORM_FIELD_TYPES, FRAMEWORK_PACKAGES, FRAMEWORK_PATTERNS, type FormEventData, type FormEventType, type FormFieldType, type Framework, type GeoStats, HTTP_STATUS, NAVIGATION_TYPES, type NavigationType, ONBOARDING_STEPS, type OnboardingStep, type OverviewStats, PLANS, PLAN_FEATURES, type Plan, type PlanFeature, type PlanId, RATE_LIMITS, type RealtimeEvent, type RealtimeStats, type Referrer, SUCCESS_MESSAGES, type TimeseriesData, type TopPage, USAGE_THRESHOLDS, USER_ROLES, type UserRole, VITAL_RATINGS, VITAL_THRESHOLDS, VITAL_TYPES, type VitalRating, type VitalType, type WebVitalData, detectDeploymentContext, getApiRoute, getEnvVarNames, getFrameworkPackage, getPlan, getPlanLimit, getVitalRating, isPlanFeatureEnabled, isUsageCritical, isUsageWarning, isValidFramework };

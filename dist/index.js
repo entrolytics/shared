@@ -1,3 +1,10 @@
+// src/event-protocol.ts
+var EventType = {
+  PageView: "pageview",
+  Custom: "custom_event",
+  Click: "click"
+};
+
 // src/index.ts
 var PLANS = {
   starter: {
@@ -562,6 +569,6 @@ function getEnv() {
   }
 }
 
-export { API_ENDPOINTS, API_ROUTES, BILLING_ERRORS, CLI_CONFIG, CLI_TOKEN_STATUS, DEFAULT_API_HOST, DEPLOYMENT_ENV_VARS, DEPLOYMENT_SOURCES, ENV_VAR_NAMES, ERROR_MESSAGES, EVENT_TYPES, FORM_EVENT_TYPES, FORM_FIELD_TYPES, FRAMEWORK_PACKAGES, FRAMEWORK_PATTERNS, HTTP_STATUS, NAVIGATION_TYPES, ONBOARDING_STEPS, PLANS, PLAN_FEATURES, RATE_LIMITS, SUCCESS_MESSAGES, USAGE_THRESHOLDS, USER_ROLES, VITAL_RATINGS, VITAL_THRESHOLDS, VITAL_TYPES, detectDeploymentContext, getApiRoute, getEnvVarNames, getFrameworkPackage, getPlan, getPlanLimit, getVitalRating, isPlanFeatureEnabled, isUsageCritical, isUsageWarning, isValidFramework };
+export { API_ENDPOINTS, API_ROUTES, BILLING_ERRORS, CLI_CONFIG, CLI_TOKEN_STATUS, DEFAULT_API_HOST, DEPLOYMENT_ENV_VARS, DEPLOYMENT_SOURCES, ENV_VAR_NAMES, ERROR_MESSAGES, EVENT_TYPES, EventType, FORM_EVENT_TYPES, FORM_FIELD_TYPES, FRAMEWORK_PACKAGES, FRAMEWORK_PATTERNS, HTTP_STATUS, NAVIGATION_TYPES, ONBOARDING_STEPS, PLANS, PLAN_FEATURES, RATE_LIMITS, SUCCESS_MESSAGES, USAGE_THRESHOLDS, USER_ROLES, VITAL_RATINGS, VITAL_THRESHOLDS, VITAL_TYPES, detectDeploymentContext, getApiRoute, getEnvVarNames, getFrameworkPackage, getPlan, getPlanLimit, getVitalRating, isPlanFeatureEnabled, isUsageCritical, isUsageWarning, isValidFramework };
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

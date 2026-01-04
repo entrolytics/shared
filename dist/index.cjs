@@ -1,5 +1,12 @@
 'use strict';
 
+// src/event-protocol.ts
+var EventType = {
+  PageView: "pageview",
+  Custom: "custom_event",
+  Click: "click"
+};
+
 // src/index.ts
 var PLANS = {
   starter: {
@@ -575,6 +582,7 @@ exports.DEPLOYMENT_SOURCES = DEPLOYMENT_SOURCES;
 exports.ENV_VAR_NAMES = ENV_VAR_NAMES;
 exports.ERROR_MESSAGES = ERROR_MESSAGES;
 exports.EVENT_TYPES = EVENT_TYPES;
+exports.EventType = EventType;
 exports.FORM_EVENT_TYPES = FORM_EVENT_TYPES;
 exports.FORM_FIELD_TYPES = FORM_FIELD_TYPES;
 exports.FRAMEWORK_PACKAGES = FRAMEWORK_PACKAGES;

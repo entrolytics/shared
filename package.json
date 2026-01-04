@@ -1,6 +1,6 @@
 {
   "name": "@entrolytics/shared",
-  "version": "2.0.6",
+  "version": "2.1.0",
   "description": "Shared utilities for Entrolytics - First-party growth analytics for the edge",
   "type": "module",
   "main": "./dist/index.cjs",
