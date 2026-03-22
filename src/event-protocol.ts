@@ -1,9 +1,9 @@
 /**
  * Event Protocol Types
- * 
+ *
  * These types define the canonical event structures used across the Entrolytics ecosystem.
  * Used by: API Server, SDKs, CLI, worker processes.
- * 
+ *
  * This file was extracted from the internal @entrolytics/protocol package to enable
  * sharing with external packages.
  */
@@ -12,9 +12,9 @@
  * Core event types supported by the analytics platform
  */
 export const EventType = {
-  PageView: 'pageview',
-  Custom: 'custom_event',
-  Click: 'click',
+  PageView: "pageview",
+  Custom: "custom_event",
+  Click: "click",
 } as const;
 
 export type EventType = (typeof EventType)[keyof typeof EventType];
@@ -69,7 +69,7 @@ export interface EventDBRow {
   browser_version: string | null;
   os: string;
   os_version: string | null;
-  device_type: 'desktop' | 'mobile' | 'tablet';
+  device_type: "desktop" | "mobile" | "tablet" | "server" | "unknown";
   screen_width: number | null;
   screen_height: number | null;
   country: string | null;
@@ -89,4 +89,4 @@ export interface EventDBRow {
 /**
  * Device types for analytics segmentation
  */
-export type DeviceType = 'desktop' | 'mobile' | 'tablet';
+export type DeviceType = "desktop" | "mobile" | "tablet" | "server" | "unknown";

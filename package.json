@@ -1,7 +1,18 @@
 {
   "name": "@entrolytics/shared",
-  "version": "2.1.0",
+  "version": "2.3.0",
   "description": "Shared utilities for Entrolytics - First-party growth analytics for the edge",
+  "keywords": [
+    "analytics",
+    "constants",
+    "entrolytics",
+    "types"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -18,25 +29,21 @@
       }
     }
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "typecheck": "tsc --noEmit"
+    "build": "vp pack",
+    "check": "vp check",
+    "dev": "vp pack --watch",
+    "lint": "vp lint --fix . && vp fmt --write .",
+    "lint:check": "vp lint . && vp fmt --check .",
+    "lint:fix-unsafe": "vp lint -f stylish --import-plugin --type-aware --type-check --vitest-plugin --fix --fix-suggestions --fix-dangerously src/",
+    "format": "vp fmt --write .",
+    "typecheck": "tsgo --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^25.0.3",
-    "tsup": "^8.5.1",
-    "typescript": "^5.9.3"
+    "@types/node": "^25.5.0",
+    "typescript": "rc",
+    "vite-plus": "latest",
+    "vitest": "^4.1.0"
   },
-  "keywords": [
-    "entrolytics",
-    "analytics",
-    "constants",
-    "types"
-  ],
-  "license": "MIT"
+  "packageManager": "pnpm@10.32.1"
 }

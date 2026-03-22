@@ -6,9 +6,13 @@ Shared utilities and constants for Entrolytics packages.
 
 ```bash
 npm install @entrolytics/shared
+
 # or
+
 pnpm add @entrolytics/shared
+
 # or
+
 yarn add @entrolytics/shared
 ```
 
@@ -19,20 +23,20 @@ import {
   EVENT_TYPES,
   DEFAULT_CONFIG,
   validateWebsiteId,
-  formatAnalyticsQuery
-} from '@entrolytics/shared';
+  formatAnalyticsQuery,
+} from "@entrolytics/shared";
 
 // Use constants
 console.log(EVENT_TYPES.PAGEVIEW); // 'pageview'
 
 // Validate data
-const isValid = validateWebsiteId('abc123'); // true
+const isValid = validateWebsiteId("abc123"); // true
 
 // Format queries
 const query = formatAnalyticsQuery({
-  websiteId: 'abc123',
-  startDate: '2025-01-01',
-  endDate: '2025-01-31',
+  websiteId: "abc123",
+  startDate: "2025-01-01",
+  endDate: "2025-01-31",
 });
 ```
 
