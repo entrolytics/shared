@@ -1,6 +1,6 @@
 {
   "name": "@entrolytics/shared",
-  "version": "2.3.0",
+  "version": "2.3.2",
   "description": "Shared utilities for Entrolytics - First-party growth analytics for the edge",
   "keywords": [
     "analytics",
@@ -41,9 +41,15 @@
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
-    "typescript": "rc",
+    "typescript": "beta",
     "vite-plus": "latest",
-    "vitest": "^4.1.0"
+    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.13"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
   },
   "packageManager": "pnpm@10.32.1"
 }
