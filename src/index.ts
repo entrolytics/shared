@@ -130,7 +130,7 @@ export const BILLING_ERRORS = {
  * API endpoint configuration
  */
 export const API_ENDPOINTS = {
-  production: "https://api.entrolytics.com",
+  production: "https://api.entrolytics.click",
   development: "http://localhost:3001",
 } as const;
 
@@ -138,7 +138,7 @@ export const API_ENDPOINTS = {
  * Default API host
  */
 export const DEFAULT_API_HOST =
-  process.env.NODE_ENV === "production" ? API_ENDPOINTS.production : API_ENDPOINTS.development;
+  getEnv()?.NODE_ENV === "production" ? API_ENDPOINTS.production : API_ENDPOINTS.development;
 
 /**
  * Environment variable naming conventions by framework
@@ -425,9 +425,24 @@ export const API_ROUTES = {
   collectVitals: "/api/collect/vitals",
   collectVitalsBatch: "/api/collect/vitals/batch",
   collectForms: "/api/collect/forms",
-  websiteVitals: (id: string) => `/api/websites/${id}/vitals`,
-  websiteForms: (id: string) => `/api/websites/${id}/forms`,
-  websiteDeployments: (id: string) => `/api/websites/${id}/deployments`,
+  collectFormsBatch: "/api/collect/forms/batch",
+  vitalsOverview: "/api/vitals/overview",
+  vitalsByPage: "/api/vitals/by-page",
+  vitalsTrend: "/api/vitals/trend",
+  vitalsRecent: "/api/vitals/recent",
+  vitalsPageBreakdown: "/api/vitals/page-breakdown",
+  formsConversions: "/api/forms/conversions",
+  formsFieldMetrics: "/api/forms/field-metrics",
+  formsFunnel: "/api/forms/funnel",
+  formsRecent: "/api/forms/recent",
+  deployments: "/api/deployments",
+  deploymentByWebsite: (id: string) => `/api/deployments/${id}`,
+  deploymentLatest: (id: string) => `/api/deployments/${id}/latest`,
+
+  // Backwards-compatible aliases for legacy website-scoped helpers
+  websiteVitals: (id: string) => `/api/vitals/overview?websiteId=${encodeURIComponent(id)}`,
+  websiteForms: (id: string) => `/api/forms/conversions?websiteId=${encodeURIComponent(id)}`,
+  websiteDeployments: (id: string) => `/api/deployments/${encodeURIComponent(id)}`,
 
   // Health checks
   health: "/api/health",
@@ -635,6 +650,73 @@ export type NavigationType = (typeof NAVIGATION_TYPES)[keyof typeof NAVIGATION_T
 export type FormEventType = (typeof FORM_EVENT_TYPES)[keyof typeof FORM_EVENT_TYPES];
 export type FormFieldType = (typeof FORM_FIELD_TYPES)[keyof typeof FORM_FIELD_TYPES];
 export type DeploymentSource = (typeof DEPLOYMENT_SOURCES)[keyof typeof DEPLOYMENT_SOURCES];
+
+export const EVENT_TYPE_VALUES = Object.values(EVENT_TYPES) as [EventType, ...EventType[]];
+export const SDK_EVENT_TYPE_VALUES = Object.values(SDK_EVENT_TYPES) as [
+  SdkEventType,
+  ...SdkEventType[],
+];
+export const VITAL_TYPE_VALUES = Object.values(VITAL_TYPES) as [VitalType, ...VitalType[]];
+export const VITAL_RATING_VALUES = Object.values(VITAL_RATINGS) as [
+  VitalRating,
+  ...VitalRating[],
+];
+export const NAVIGATION_TYPE_VALUES = Object.values(NAVIGATION_TYPES) as [
+  NavigationType,
+  ...NavigationType[],
+];
+export const FORM_EVENT_TYPE_VALUES = Object.values(FORM_EVENT_TYPES) as [
+  FormEventType,
+  ...FormEventType[],
+];
+export const FORM_FIELD_TYPE_VALUES = Object.values(FORM_FIELD_TYPES) as [
+  FormFieldType,
+  ...FormFieldType[],
+];
+export const DEPLOYMENT_SOURCE_VALUES = Object.values(DEPLOYMENT_SOURCES) as [
+  DeploymentSource,
+  ...DeploymentSource[],
+];
+
+export function isEventType(value: string): value is EventType {
+  return EVENT_TYPE_VALUES.includes(value as EventType);
+}
+
+export function isSdkEventType(value: string): value is SdkEventType {
+  return SDK_EVENT_TYPE_VALUES.includes(value as SdkEventType);
+}
+
+export function isVitalType(value: string): value is VitalType {
+  return VITAL_TYPE_VALUES.includes(value as VitalType);
+}
+
+export function isVitalRating(value: string): value is VitalRating {
+  return VITAL_RATING_VALUES.includes(value as VitalRating);
+}
+
+export function isNavigationType(value: string): value is NavigationType {
+  return NAVIGATION_TYPE_VALUES.includes(value as NavigationType);
+}
+
+export function isFormEventType(value: string): value is FormEventType {
+  return FORM_EVENT_TYPE_VALUES.includes(value as FormEventType);
+}
+
+export function isFormFieldType(value: string): value is FormFieldType {
+  return FORM_FIELD_TYPE_VALUES.includes(value as FormFieldType);
+}
+
+export function isDeploymentSource(value: string): value is DeploymentSource {
+  return DEPLOYMENT_SOURCE_VALUES.includes(value as DeploymentSource);
+}
+
+export function normalizeDeploymentSource(value: string | null | undefined): DeploymentSource {
+  if (!value) {
+    return "custom";
+  }
+
+  return isDeploymentSource(value) ? value : "custom";
+}
 
 /**
  * Web Vital data structure for SDK tracking
