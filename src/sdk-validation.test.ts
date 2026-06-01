@@ -8,12 +8,24 @@
 import { ENV_VAR_NAMES } from "@entrolytics/shared";
 import { beforeEach, describe, expect, it } from "vite-plus/test";
 
+type GlobalWithProcess = typeof globalThis & {
+  process?: {
+    env: Record<string, string | undefined>;
+  };
+};
+
 describe("SDK Environment Variable Alignment", () => {
   beforeEach(() => {
+    const runtime = globalThis as GlobalWithProcess;
+    const env = runtime.process?.env;
+    if (!env) {
+      return;
+    }
+
     // Clear all env vars before each test
-    for (const key of Object.keys(process.env)) {
+    for (const key of Object.keys(env)) {
       if (key.includes("ENTROLYTICS")) {
-        delete process.env[key];
+        delete env[key];
       }
     }
   });
@@ -35,13 +47,6 @@ describe("SDK Environment Variable Alignment", () => {
       expect(expectedVars.websiteId).toBe("VITE_ENTROLYTICS_WEBSITE_ID");
       expect(expectedVars.host).toBe("VITE_ENTROLYTICS_HOST");
       expect(expectedVars.envFile).toBe(".env");
-    });
-
-    it("should have CRA fallback", () => {
-      const expectedVars = ENV_VAR_NAMES.react;
-
-      expect(expectedVars.fallback?.websiteId).toBe("REACT_APP_ENTROLYTICS_WEBSITE_ID");
-      expect(expectedVars.fallback?.host).toBe("REACT_APP_ENTROLYTICS_HOST");
     });
   });
 

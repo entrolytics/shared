@@ -153,11 +153,6 @@ export const ENV_VAR_NAMES = {
     websiteId: "VITE_ENTROLYTICS_WEBSITE_ID",
     host: "VITE_ENTROLYTICS_HOST",
     envFile: ".env",
-    fallback: {
-      // CRA fallback
-      websiteId: "REACT_APP_ENTROLYTICS_WEBSITE_ID",
-      host: "REACT_APP_ENTROLYTICS_HOST",
-    },
   },
   vue: {
     websiteId: "VITE_ENTROLYTICS_WEBSITE_ID",
@@ -382,7 +377,6 @@ export const API_ROUTES = {
   cliAuthToken: "/api/auth/cli/token",
   cliAuthTokens: "/api/auth/cli/tokens",
   cliValidate: "/api/auth/cli/validate",
-  cliToken: "/api/cli/token", // Legacy - deprecated
 
   // Share routes
   shareToken: (shareId: string) => `/api/share/${shareId}`,
@@ -437,12 +431,8 @@ export const API_ROUTES = {
   formsRecent: "/api/forms/recent",
   deployments: "/api/deployments",
   deploymentByWebsite: (id: string) => `/api/deployments/${id}`,
+  deploymentCompare: (id: string) => `/api/deployments/${id}/compare`,
   deploymentLatest: (id: string) => `/api/deployments/${id}/latest`,
-
-  // Backwards-compatible aliases for legacy website-scoped helpers
-  websiteVitals: (id: string) => `/api/vitals/overview?websiteId=${encodeURIComponent(id)}`,
-  websiteForms: (id: string) => `/api/forms/conversions?websiteId=${encodeURIComponent(id)}`,
-  websiteDeployments: (id: string) => `/api/deployments/${encodeURIComponent(id)}`,
 
   // Health checks
   health: "/api/health",
@@ -542,19 +532,6 @@ export const RATE_LIMITS = {
   apiGeneral: {
     windowSeconds: 60, // 1 minute
     maxRequests: 100,
-  },
-  // Legacy (deprecated but kept for backwards compatibility)
-  cliTokenGeneration: {
-    windowMs: 3600000, // 1 hour
-    maxRequests: 10,
-  },
-  cliValidation: {
-    windowMs: 3600000, // 1 hour
-    maxRequests: 100,
-  },
-  eventCollection: {
-    windowMs: 60000, // 1 minute
-    maxRequests: 1000,
   },
 } as const;
 
@@ -657,10 +634,7 @@ export const SDK_EVENT_TYPE_VALUES = Object.values(SDK_EVENT_TYPES) as [
   ...SdkEventType[],
 ];
 export const VITAL_TYPE_VALUES = Object.values(VITAL_TYPES) as [VitalType, ...VitalType[]];
-export const VITAL_RATING_VALUES = Object.values(VITAL_RATINGS) as [
-  VitalRating,
-  ...VitalRating[],
-];
+export const VITAL_RATING_VALUES = Object.values(VITAL_RATINGS) as [VitalRating, ...VitalRating[]];
 export const NAVIGATION_TYPE_VALUES = Object.values(NAVIGATION_TYPES) as [
   NavigationType,
   ...NavigationType[],
