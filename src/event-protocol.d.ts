@@ -21,12 +21,15 @@ export type EventType = (typeof EventType)[keyof typeof EventType];
  */
 export interface EventPayload {
   websiteId: string;
+  eventId: string;
+  timestamp: string;
   sessionId: string;
   visitorId: string;
   url: string;
   referrer?: string;
   eventType: EventType;
   eventName?: string;
+  consent?: boolean;
   properties?: Record<string, unknown>;
   screenWidth?: number;
   screenHeight?: number;
