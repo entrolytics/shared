@@ -37,7 +37,7 @@
     "lint:check": "vp lint . && vp fmt --check .",
     "lint:fix-unsafe": "vp lint -f stylish --import-plugin --type-aware --type-check --vitest-plugin --fix --fix-suggestions --fix-dangerously src/",
     "format": "vp fmt --write .",
-    "typecheck": "tsgo --noEmit"
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

@@ -275,6 +275,7 @@ export const NAVIGATION_TYPES = {
   backForwardCache: "back-forward-cache",
   prerender: "prerender",
   restore: "restore",
+  softNavigation: "soft-navigation",
 } as const;
 
 /**
