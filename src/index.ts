@@ -137,7 +137,7 @@ export const API_ENDPOINTS = {
 /**
  * Default API host
  */
-export const DEFAULT_API_HOST =
+export const DEFAULT_API_HOST: string =
   getEnv()?.NODE_ENV === "production" ? API_ENDPOINTS.production : API_ENDPOINTS.development;
 
 /**
@@ -739,11 +739,11 @@ export interface DeploymentContext {
 /**
  * Utility functions
  */
-export function getEnvVarNames(framework: Framework) {
+export function getEnvVarNames(framework: Framework): (typeof ENV_VAR_NAMES)[Framework] {
   return ENV_VAR_NAMES[framework];
 }
 
-export function getFrameworkPackage(framework: Framework) {
+export function getFrameworkPackage(framework: Framework): string | null {
   return FRAMEWORK_PACKAGES[framework as keyof typeof FRAMEWORK_PACKAGES] || null;
 }
 
@@ -751,7 +751,7 @@ export function isValidFramework(framework: string): framework is Framework {
   return framework in ENV_VAR_NAMES;
 }
 
-export function getApiRoute(route: keyof typeof API_ROUTES, ...args: string[]) {
+export function getApiRoute(route: keyof typeof API_ROUTES, ...args: string[]): string {
   const routeFn = API_ROUTES[route];
   if (typeof routeFn === "function") {
     return (routeFn as (...args: string[]) => string)(...args);
