@@ -6,7 +6,7 @@
  */
 
 import { ENV_VAR_NAMES } from "@entrolytics/shared";
-import { beforeEach, describe, expect, it } from "vite-plus/test";
+import { beforeEach, describe, expect, it } from "vitest";
 
 type GlobalWithProcess = typeof globalThis & {
   process?: {
