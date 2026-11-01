@@ -130,7 +130,7 @@ export const BILLING_ERRORS = {
  * API endpoint configuration
  */
 export const API_ENDPOINTS = {
-  production: "https://api.entrolytics.click",
+  production: "https://api.entrolytics.dev",
   development: "http://localhost:3001",
 } as const;
 
