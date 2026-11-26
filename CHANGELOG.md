@@ -5,6 +5,11 @@ All notable changes to this project are documented in this file. The format foll
 
 ## [Unreleased]
 
+## [3.2.2] - 2026-11-26
+
 ### Changed
 
 - Built and released with pnpm 12.24.0. No code changes.
+
+[Unreleased]: https://github.com/entrolytics/shared/compare/v3.2.2...HEAD
+[3.2.2]: https://github.com/entrolytics/shared/releases/tag/v3.2.2

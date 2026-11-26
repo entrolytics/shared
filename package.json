@@ -1,6 +1,6 @@
 {
   "name": "@entrolytics/shared",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Shared utilities for Entrolytics - First-party growth analytics for the edge",
   "keywords": [
     "analytics",
